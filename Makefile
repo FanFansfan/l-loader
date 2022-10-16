@@ -9,9 +9,11 @@
 # SPDX-License-Identifier:	GPL-2.0+
 #
 
+ATF_PLAT ?= hi3798mv2x
+
 RECOVERY ?= 0
 ARM_TRUSTED_FIRMWARE ?= ../arm-trusted-firmware/
-ARM_TF_INCLUDE ?= $(ARM_TRUSTED_FIRMWARE)/plat/hisilicon/poplar/include
+ARM_TF_INCLUDE ?= $(ARM_TRUSTED_FIRMWARE)/plat/hisilicon/${ATF_PLAT}/include
 
 # Must use a 32-bit ARM cross-compiler
 CROSS_COMPILE ?= arm-linux-gnueabihf-
@@ -20,7 +22,7 @@ CC=$(CROSS_COMPILE)gcc
 LD=$(CROSS_COMPILE)ld
 OBJCOPY=$(CROSS_COMPILE)objcopy
 
-CFLAGS := -march=armv7-a
+CFLAGS := -march=armv7-a+fp
 ifeq ($(RECOVERY),1)
 CFLAGS += -DRECOVERY
 endif

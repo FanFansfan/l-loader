@@ -10,7 +10,7 @@
  *
  */
 
-#include "poplar_layout.h"
+#include "hi3798mv2x_layout.h"
 
 OUTPUT_FORMAT("elf32-littlearm", "elf32-littlearm", "elf32-littlearm")
 OUTPUT_ARCH(arm)
